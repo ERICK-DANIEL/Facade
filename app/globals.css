@@ -1,0 +1,24 @@
+/* app/globals.css */
+
+/* Reset básico para asegurar la ocupación completa de la pantalla */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* El body debe ocupar todo el viewport para que el fondo del ejemplo funcione */
+body {
+  /* Establece un color de fondo para evitar parpadeos, aunque el componente lo sobrescribirá */
+  background-color: #303030; 
+  /* Asegura que el contenido se extienda si es necesario */
+  min-height: 100vh; 
+}
+
+/* Nota: El archivo 'app/facade-example/styles.module.css' 
+  contiene todos los estilos específicos (fondo, caja, logo) 
+  para replicar la pantalla de "Building terrain".
+*/
