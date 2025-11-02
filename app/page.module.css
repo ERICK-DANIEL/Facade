@@ -1,0 +1,103 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Minecraft";
+  src: url("/fonts/Minecraft.ttf") format("truetype");
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: blur(2px);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  width: 50%;
+  height: auto;
+  margin: 80px auto 0px;
+}
+
+.console {
+  position: relative;
+  width: 50%;
+  height: 60vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.backgroundWindow {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 98%;
+  height: 54%;
+  z-index: -1;
+}
+
+.console .window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.loadingText {
+  display: flex;
+  margin: 0 auto;
+  z-index: 2;
+  font-family: "Minecraft", monospace;
+  font-size: 18px;
+  margin-top: 1%;
+  color: #424242;
+}
+
+.line {
+  position: relative;
+  font-size: 18px;
+  font-family: "Minecraft", monospace;
+  padding-top: 12px;
+  font-weight: 100;
+  z-index: 1;
+  margin: 0;
+  white-space: pre-wrap;
+  text-align: center;
+  color: #e4e3e3;
+}
+
+.experienceBar {
+  position: absolute;
+  bottom: 54%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 12px;
+  z-index: 2;
+}
