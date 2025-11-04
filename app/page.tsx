@@ -1,11 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { World } from "./core/systems/World";
-import { Player } from "./core/systems/Player";
-import { Enemy } from "./core/systems/Enemy";
-import { SoundSystem } from "./core/systems/SoundSystem";
-import { GameFacade } from "./core/GameFacade";
-
 import Image from "next/image";
 import MinecraftLogo from "./assets/minecraft.png";
 import Window from "./assets/window.png";
@@ -13,32 +7,21 @@ import Background from "./assets/Background.jpg";
 import Experience from "./assets/experience_bar_background.png";
 import styles from "./page.module.css";
 
-export default function HomePage() {
+// Importar los sistemas individuales o GameFacade aquí
+import { GameFacade } from "./core/GameFacade";
+
+export default function HomePageNoFacade() {
   const [currentLine, setCurrentLine] = useState<string>("");
   const delay = 2000;
-  const USE_FACADE = false;
 
   useEffect(() => {
     async function simulateGameStart() {
       setCurrentLine("");
-
       let lines: string[] = [];
 
-      if (USE_FACADE) {
-        lines = new GameFacade().startGame();
-      } else {
-        const world = new World();
-        const player = new Player();
-        const enemies = new Enemy();
-        const sound = new SoundSystem();
-
-        lines = [
-          world.generateTerrain(),
-          player.spawn(world),
-          enemies.spawnEnemies(),
-          sound.playBackgroundMusic(),
-        ];
-      }
+      // Usar GameFacade o las clases para iniciar el juego
+      const facade = new GameFacade();
+      lines = facade.startGame();
 
       for (const line of lines) {
         setCurrentLine(line);
@@ -49,7 +32,7 @@ export default function HomePage() {
     }
 
     simulateGameStart();
-  }, [USE_FACADE]);
+  }, []);
 
   return (
     <main className={styles.container}>
@@ -69,13 +52,11 @@ export default function HomePage() {
         <Image
           src={Window}
           alt="Window"
-          loading="eager"
           className={styles.window}
+          loading="eager"
         />
 
-        <h2 className={styles.loadingText}>
-          Loading with {USE_FACADE ? "facade" : "no facade"}
-        </h2>
+        <h2 className={styles.loadingText}>Loading with Facade</h2>
 
         <p key={currentLine} className={styles.line}>
           {currentLine}

@@ -81,9 +81,9 @@ body {
 
 .line {
   position: relative;
-  font-size: 18px;
+  font-size: 20px;
   font-family: "Minecraft", monospace;
-  padding-top: 12px;
+  padding-top: 20px;
   font-weight: 100;
   z-index: 1;
   margin: 0;
